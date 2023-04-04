@@ -7,6 +7,8 @@ const wss = new WebSocket.Server({ server });
 
 wss.on('connection', function connection(ws) {
   console.log('A new client Connected!');
+  client.send("Connected to servers!");
+  
   ws.on('message', function incoming(message) {
     console.log('received: %s', message);
     const parsedMessage = JSON.parse(message);
